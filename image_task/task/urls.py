@@ -1,6 +1,4 @@
-from django.urls import path
-from task import views
+from urllib.request import Request
 
-urlpatterns = [
-    path("", views.home, name="home"),
-]
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
