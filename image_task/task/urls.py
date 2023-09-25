@@ -1,4 +1,7 @@
-from urllib.request import Request
+from django.urls import path
 
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from task import views
+
+urlpatterns = [
+    path("", views.get_routes),
+]
