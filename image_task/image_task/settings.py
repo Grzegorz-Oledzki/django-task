@@ -41,7 +41,23 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "task",
+    "rest_framework.authtoken",
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ],
+    "DEFAULT_PARSER_CLASSES": (
+        "rest_framework.parsers.FormParser",
+        "rest_framework.parsers.MultiPartParser",
+    ),
+}
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+]
+SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -114,7 +130,7 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
+APPEND_SLASH = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
