@@ -3,6 +3,12 @@ import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
+from PIL import Image as PILIMAGE
+
+
+def get_filename(_, filename):
+    print(filename)  # or do whatever you want with the original filename here
+    return f"http://127.0.0.1:8000/media/images/{filename}"
 
 
 class User(models.Model):
@@ -29,6 +35,9 @@ class User(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(null=True, blank=True, upload_to="images/")
+    image = models.ImageField(null=True, blank=False, upload_to="images/")
     name = models.CharField(max_length=50, blank=True, null=True, unique=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    time_created = models.DateTimeField(auto_now_add=True)
+
+    # url = models.CharField(max_length=100, blank=True, null=True, unique=True)
