@@ -10,10 +10,10 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class ImageSerializer(serializers.ModelSerializer):
-    def create(self, validated_data):
-        image = Image.objects.create(**validated_data)
-        return image
-
     class Meta:
         model = Image
-        fields = ["name"]
+        fields = [
+            "image",
+            "name",
+        ]
+        read_only_fields = ["owner_id"]
