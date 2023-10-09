@@ -56,3 +56,5 @@ Docker:
     ![Alt text](media/image5.JPG)
     - if user does not have images:
     ![Alt text](media/image3.JPG)
+
+Thanks!
