@@ -1,7 +1,7 @@
 import os
 
 from PIL import Image as Pil
-from .models import Image
+from task.models import Image
 from django.core.files.base import ContentFile
 from django.db import models
 
