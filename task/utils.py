@@ -1,8 +1,9 @@
+import os
+
 from PIL import Image as Pil
 from .models import Image
 from django.core.files.base import ContentFile
 from django.db import models
-import os
 
 
 def resize_image(image: Image, size: tuple[int, int], name: str) -> None:

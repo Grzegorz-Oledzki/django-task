@@ -1,0 +1,42 @@
+version: "3.10"
+
+services:
+  
+  db:
+    image: postgres:14.1
+    container_name: image-local-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=image_local_db
+      - POSTGRES_USER=grzes
+      - POSTGRES_PASSWORD=grzes
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+  web:
+      build: .
+      command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000 "
+      volumes:
+        - ./image-task/:/image-task/
+      ports:
+        - 8000:8000
+      depends_on:
+      - db
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    depends_on:
+      - db
+    ports:
+      - "5555:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  pgadmin-data:
