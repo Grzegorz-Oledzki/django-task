@@ -5,13 +5,14 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "Python: Django",
+        "name": "Image task",
         "type": "python",
         "request": "launch",
-        "program": "${workspaceFolder}\\manage.py",
+        "program": "/Users/b_uni/Repositories/django-task/image_task/manage.py",
         "args": ["runserver"],
         "django": true,
-        "justMyCode": true
+        "justMyCode": true,
+        "console": "integratedTerminal",
       }
     ]
   }

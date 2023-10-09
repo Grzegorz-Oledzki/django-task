@@ -24,8 +24,8 @@ An application written in the Django Rest Framework for uploading images (jpg, p
     - performance considerations (assume there can be a lot of images and the API is frequently accessed)
 
 I met the requirements with two exceptions:
-    - no expired links,
-    - no tests
+- no expired links,
+- no tests  
 
 Perhaps these requirements will be added in the next few days, but I wanted to give the task the stage it is at.
 
@@ -41,3 +41,18 @@ Docker:
 6. To load builtin account tiers and create user connected to superuser:
     <code>docker-compose -f docker-compose-dev.yml exec web python manage.py loaddata task/builtin_tiers.json</code>
 7. Enjoy! 
+
+# How to use:
+1. Via Postman post image with fields:
+    - file,
+    - owner_id,
+    - name
+    and if everything is ok you should get response like:
+    ![Alt text](media/image1.JPG)
+2. To get image, post owner_id:
+    - Basic one thumbnail user without orginal link: 
+    ![Alt text](media/image4.JPG)
+    - Premium - two thumbnail and original link:
+    ![Alt text](media/image5.JPG)
+    - if user does not have images:
+    ![Alt text](media/image3.JPG)
