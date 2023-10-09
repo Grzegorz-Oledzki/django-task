@@ -2,8 +2,6 @@ import uuid
 from typing import List
 from django.db import models
 from django.contrib.auth.models import User as DjangoUser
-from django.utils.translation import gettext_lazy as _
-from PIL import Image as PILIMAGE
 
 
 class User(models.Model):
@@ -16,7 +14,7 @@ class User(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     tier = models.ForeignKey("Tier", on_delete=models.DO_NOTHING, blank=True, null=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.name)
 
 
@@ -33,12 +31,6 @@ class Tier(models.Model):
     thumbnail_height_2 = models.IntegerField(blank=True, null=True, unique=False)
     thumbnail_height_3 = models.IntegerField(blank=True, null=True, unique=False)
     thumbnail_height_4 = models.IntegerField(blank=True, null=True, unique=False)
-    thumbnail_height_5 = models.IntegerField(blank=True, null=True, unique=False)
-    thumbnail_height_6 = models.IntegerField(blank=True, null=True, unique=False)
-    thumbnail_height_7 = models.IntegerField(blank=True, null=True, unique=False)
-    thumbnail_height_8 = models.IntegerField(blank=True, null=True, unique=False)
-    thumbnail_height_9 = models.IntegerField(blank=True, null=True, unique=False)
-    thumbnail_height_10 = models.IntegerField(blank=True, null=True, unique=False)
     orginal_link = models.BooleanField(default=False)
 
     def __str__(self) -> str:
@@ -50,11 +42,5 @@ class Tier(models.Model):
             self.thumbnail_height_2,
             self.thumbnail_height_3,
             self.thumbnail_height_4,
-            self.thumbnail_height_5,
-            self.thumbnail_height_6,
-            self.thumbnail_height_7,
-            self.thumbnail_height_8,
-            self.thumbnail_height_9,
-            self.thumbnail_height_10,
         ]
         return [size for size in sizes if size]

@@ -27,8 +27,9 @@
     {
         "model": "task.user",
         "fields": {
-            "name": "grzes",
-            "user": 1
+            "name": "first_user",
+            "user": 1,
+            "tier": 1
         }
     }
 ]
