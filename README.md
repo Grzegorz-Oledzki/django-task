@@ -33,11 +33,11 @@ Perhaps these requirements will be added in the next few days, but I wanted to g
 Docker:
 1. Clone this repository: <code>git@github.com:Grzegorz-Oledzki/django-task.git</code>
 2. Make sure you have docker
-3. Type:
+3. Type in terminal:
     <code>docker-compose -f docker-compose-dev.yml up -d --build</code>
-    then:
 4. When you have error with database type again command above
 5. Run <code>docker-compose -f docker-compose-dev.yml exec web python manage.py createsuperuser</code>
+    and createsuperuser in terminal
 6. To load builtin account tiers and create user connected to superuser:
     <code>docker-compose -f docker-compose-dev.yml exec web python manage.py loaddata task/builtin_tiers.json</code>
 7. Enjoy! 
@@ -55,6 +55,7 @@ Docker:
     - Premium - two thumbnail and original link:
     ![Alt text](media/image5.JPG)
     - if user does not have images:
+
     ![Alt text](media/image3.JPG)
 
 Thanks!
